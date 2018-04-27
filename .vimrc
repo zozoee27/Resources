@@ -39,6 +39,7 @@ inoremap jk <esc>
 nnoremap / /\c
 vnoremap / /\c
 
+let mapleader =","
 
 "---------- Ctrl P -----------------
 let g:ctrlp_map = '<c-p>'
@@ -46,3 +47,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_cache_dir=$HOME . '/.cache/ctrlp'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+
+"------------- EASY MOTION ---------
+map <Leader>w <Plug>(easymotion-w)
+map <Leader>b <Plug>(easymotion-b)
