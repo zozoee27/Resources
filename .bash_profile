@@ -1,1 +1,2 @@
-../.bash_profile
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
