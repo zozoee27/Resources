@@ -1,0 +1,20 @@
+{
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings":[
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ], 
+    "vim.leader": "<space>",
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "editor.cursorStyle": "block",
+    "cmake.configureOnOpen": true
+}
