@@ -1,7 +1,6 @@
 "----------- vundle PLUGINS ------
 set nocompatible
 filetype off
-
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/ctrlp.vim
 call vundle#begin()
@@ -13,6 +12,7 @@ Plugin 'YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 
 Plugin 'fatih/vim-go'
+Plugin 'jiangmiao/auto-pairs'
 	
 call vundle#end()
 filetype plugin indent on
@@ -22,7 +22,7 @@ filetype plugin indent on
 syntax on
 
 "COPY AND PASTE
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 set ignorecase
 set smartcase
@@ -33,13 +33,16 @@ set expandtab
 
 set nu
 
+set incsearch
+set hlsearch
+
 inoremap jk <esc>
 
 "----------- Regex -----------------
 nnoremap / /\c
 vnoremap / /\c
 
-let mapleader =","
+let mapleader =" "
 
 "---------- Ctrl P -----------------
 let g:ctrlp_map = '<c-p>'
@@ -51,3 +54,4 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "------------- EASY MOTION ---------
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>b <Plug>(easymotion-b)
+
