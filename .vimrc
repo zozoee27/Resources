@@ -11,6 +11,7 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'alvan/vim-closetag'
 
 Plugin 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plugin 'junegunn/fzf.vim'
@@ -46,6 +47,7 @@ set ignorecase
 set smartcase
 set smartindent
 set autoindent
+set wrap!
 
 set tabstop=2
 set shiftwidth=2
@@ -114,6 +116,9 @@ let g:ycm_language_server = [
 \     'filetypes': [ 'ruby', 'rb' ] 
 \   } 
 \ ]
+
+"\     'cmdline': ['/opt/homebrew/lib/ruby/gems/2.7.0/bin/solargraph', 'stdio' ],
+"\     'cmdline': ['/opt/rubies/ruby-2.7.5/lib/ruby/gems/2.7.0/gems/solargraph-0.44.3/bin/solargraph', 'stdio' ],
 
 "--------GoTo code navigation
 let g:coc_global_extensions = ['coc-solargraph']
@@ -217,3 +222,47 @@ noremap <S-Tab> :bp<CR>
 noremap <Leader><Tab> :Bw<CR>
 noremap <Leader><S-Tab> :Bw!<CR>
 noremap <C-t> :tabnew split<CR>
+
+"-------- html auto complete
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml,erb'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ 'typescriptreact': 'jsxRegion,tsxRegion',
+      \ 'javascriptreact': 'jsxRegion',
+      \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
