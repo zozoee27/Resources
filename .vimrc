@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/ctrlp.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'ycm-core/YouCompleteMe'
+"Plugin 'ycm-core/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
 Plugin 'jiangmiao/auto-pairs'
@@ -29,8 +29,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-endwise'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'ngmy/vim-rubocop'
 Plugin 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plugin 'neoclide/coc-solargraph'
+
+Plugin 'mileszs/ack.vim'
+
 "Run `:CocInstall coc-solargraph`
 "Run `solargraph bundle` in root directory
 call vundle#end()
@@ -67,8 +71,13 @@ set lcs+=space:·
 set list
 
 let mapleader =" "
-nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
-nnoremap <silent> <Leader>f :Rg <CR>
+nnoremap <silent> <Leader>f :Rg <C-R><C-W><CR>
+nnoremap <silent> <Leader>rg :Rg <CR>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
+nnoremap <silent> <Leader>gb :Git blame<CR>
 
 "----------- Regex -----------------
 nnoremap / /\c
@@ -109,13 +118,13 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
 
 "--------- YCM - Ruby --------
-set omnifunc=javascriptcomplete#CompleteJS,htmlcomplete#CompleteTags
-let g:ycm_language_server = [ 
-\   { 'name': 'ruby', 
-\     'cmdline': ['/opt/homebrew/lib/ruby/gems/2.7.0/bin/solargraph', 'stdio' ],
-\     'filetypes': [ 'ruby', 'rb' ] 
-\   } 
-\ ]
+"set omnifunc=javascriptcomplete#CompleteJS,htmlcomplete#CompleteTags
+"let g:ycm_language_server = [ 
+"\   { 'name': 'ruby', 
+"\     'cmdline': ['/opt/homebrew/lib/ruby/gems/2.7.0/bin/solargraph', 'stdio' ],
+"\     'filetypes': [ 'ruby', 'rb' ] 
+"\   } 
+"\ ]
 
 "\     'cmdline': ['/opt/homebrew/lib/ruby/gems/2.7.0/bin/solargraph', 'stdio' ],
 "\     'cmdline': ['/opt/rubies/ruby-2.7.5/lib/ruby/gems/2.7.0/gems/solargraph-0.44.3/bin/solargraph', 'stdio' ],
@@ -266,3 +275,30 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>'
+
+"----- Rubocop
+let g:vimrubocop_keymap = 0
+nmap <Leader>rc :RuboCop<CR>
+nmap <Leader>ra :RuboCop -a<CR>
+
+"----------- Ack --------------
+
+" Use ripgrep for searching ⚡️
+" Options include:
+" --vimgrep -> Needed to parse the rg response properly for ack.vim
+" --type-not sql -> Avoid huge sql file dumps as it slows down the search
+" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
+let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
+
+" Auto close the Quickfix list after pressing '<enter>' on a list item
+let g:ack_autoclose = 1
+
+" Any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+
+" Don't jump to first match
+cnoreabbrev Ack Ack!
+
+" Navigate quickfix list with ease
+nnoremap <silent> [ :cprevious<CR>
+nnoremap <silent> ] :cnext<CR>
