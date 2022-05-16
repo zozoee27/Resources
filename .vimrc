@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ngmy/vim-rubocop'
@@ -41,8 +42,17 @@ call vundle#end()
 "filetype plugin indent on
 
 "------------ GENERAL -------------
+let mapleader =" "
 
+"-------- Set Fold ------------------
 syntax on
+set foldmethod=syntax
+set nofoldenable
+nnoremap <silent> <Leader>c zc<esc>
+nnoremap <silent> <Leader>o zo<esc>
+nnoremap <silent> <Leader>C zC<esc>
+nnoremap <silent> <Leader>O zO<esc>
+
 
 "COPY AND PASTE
 set clipboard+=unnamed
@@ -70,7 +80,6 @@ set backspace=indent,eol,start
 set lcs+=space:·
 set list
 
-let mapleader =" "
 nnoremap <silent> <Leader>f :Rg <C-R><C-W><CR>
 nnoremap <silent> <Leader>rg :Rg <CR>
 command! -bang -nargs=* Rg
@@ -91,7 +100,6 @@ let g:ctrlp_map = '<c-q>'
 let g:ctrlp_cmd = 'CtrlP'
 "let g:ctrlp_working_path_mode = 'ra'
 "let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
-"nnoremap <leader>r :ClearCtrlPCache<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 
 "------------- EASY MOTION ---------
@@ -116,6 +124,7 @@ colorscheme Tomorrow-Night-Eighties
 "--------- NERDTree --------
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>r :NERDTreeRefreshRoot<CR>
 
 "--------- YCM - Ruby --------
 "set omnifunc=javascriptcomplete#CompleteJS,htmlcomplete#CompleteTags
@@ -195,7 +204,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nmap <Leader>m <Plug>BookmarkToggle
 nmap <Leader>i <Plug>BookmarkAnnotate
 nmap <Leader>a <Plug>BookmarkShowAll
-nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>d <Plug>BookmarkClear
 nmap <Leader>x <Plug>BookmarkClearAll
 
 let g:bookmark_sign = '♥'
