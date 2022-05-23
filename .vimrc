@@ -34,7 +34,10 @@ Plugin 'ngmy/vim-rubocop'
 Plugin 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plugin 'neoclide/coc-solargraph'
 
-Plugin 'mileszs/ack.vim'
+Plugin 'blueyed/vim-diminactive'
+Plugin 'preservim/vimux'
+Plugin 'liuchengxu/vim-which-key'
+Plugin 'ruanyl/vim-gh-line'
 
 "Run `:CocInstall coc-solargraph`
 "Run `solargraph bundle` in root directory
@@ -203,11 +206,15 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "------------- Bookmarks ----------
 nmap <Leader>m <Plug>BookmarkToggle
 nmap <Leader>i <Plug>BookmarkAnnotate
-nmap <Leader>a <Plug>BookmarkShowAll
+nmap <Leader>ba <Plug>BookmarkShowAll
 nmap <Leader>d <Plug>BookmarkClear
 nmap <Leader>x <Plug>BookmarkClearAll
 
 let g:bookmark_sign = '♥'
+
+"------------ Testing ------ -
+nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
+nmap <silent> <leader>a :VimuxRunCommand 'dev test .'<CR>
 
 "----------- Airline ----------
 let g:airline#extensions#tabline#enabled = 1
@@ -224,17 +231,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "-------- Buffet -------
-nmap <leader>1 <Plug>BuffetSwitch(1)
-nmap <leader>2 <Plug>BuffetSwitch(2)
-nmap <leader>3 <Plug>BuffetSwitch(3)
-nmap <leader>4 <Plug>BuffetSwitch(4)
-nmap <leader>5 <Plug>BuffetSwitch(5)
-nmap <leader>6 <Plug>BuffetSwitch(6)
-nmap <leader>7 <Plug>BuffetSwitch(7)
-nmap <leader>8 <Plug>BuffetSwitch(8)
-nmap <leader>9 <Plug>BuffetSwitch(9)
-nmap <leader>0 <Plug>BuffetSwitch(10)
-
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 noremap <Leader><Tab> :Bw<CR>
@@ -290,24 +286,11 @@ let g:vimrubocop_keymap = 0
 nmap <Leader>rc :RuboCop<CR>
 nmap <Leader>ra :RuboCop -a<CR>
 
-"----------- Ack --------------
-
-" Use ripgrep for searching ⚡️
-" Options include:
-" --vimgrep -> Needed to parse the rg response properly for ack.vim
-" --type-not sql -> Avoid huge sql file dumps as it slows down the search
-" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
-let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
-
-" Auto close the Quickfix list after pressing '<enter>' on a list item
-let g:ack_autoclose = 1
-
-" Any empty ack search will search for the work the cursor is on
-let g:ack_use_cword_for_empty_search = 1
-
-" Don't jump to first match
-cnoreabbrev Ack Ack!
-
 " Navigate quickfix list with ease
-nnoremap <silent> [ :cprevious<CR>
-nnoremap <silent> ] :cnext<CR>
+nnoremap <silent>[ :cprevious<CR>
+nnoremap <silent>] :cnext<CR>
+
+"------- Which key ---------
+noremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+
