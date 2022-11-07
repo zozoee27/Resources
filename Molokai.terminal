@@ -143,15 +143,21 @@
 	ohYYWE5TT2JqZWN0CBEaJCkyN0lMUVNXXWRqd36nqauwu8TMzwAAAAAAAAEBAAAAAAAA
 	ABkAAAAAAAAAAAAAAAAAAADY
 	</data>
+	<key>BackgroundBlur</key>
+	<real>0.6246488764044944</real>
 	<key>BackgroundColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
 	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxARElVO
 	U1JHQlxOU0NvbG9yU3BhY2VWJGNsYXNzTxA3MC4wNzA1ODgyMzg1NCAwLjA3MDU4ODIz
-	ODU0IDAuMDcwNTg4MjM4NTQgMC44NDY0NzU0MDgzABACgALSFBUWF1okY2xhc3NuYW1l
+	ODU0IDAuMDcwNTg4MjM4NTQgMC45MzA0Nzc1MjgxABACgALSFBUWF1okY2xhc3NuYW1l
 	WCRjbGFzc2VzV05TQ29sb3KiFhhYTlNPYmplY3QIERokKTI3SUxRU1ddZGp3fri6vMHM
 	1d3gAAAAAAAAAQEAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAOk=
 	</data>
+	<key>Bell</key>
+	<false/>
+	<key>CursorBlink</key>
+	<true/>
 	<key>CursorColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
@@ -185,9 +191,25 @@
 	<false/>
 	<key>ShowActiveProcessArgumentsInTitle</key>
 	<false/>
+	<key>ShowActiveProcessInTabTitle</key>
+	<true/>
 	<key>ShowActiveProcessInTitle</key>
 	<true/>
+	<key>ShowCommandKeyInTitle</key>
+	<false/>
 	<key>ShowDimensionsInTitle</key>
+	<false/>
+	<key>ShowRepresentedURLInTitle</key>
+	<true/>
+	<key>ShowRepresentedURLPathInTabTitle</key>
+	<true/>
+	<key>ShowRepresentedURLPathInTitle</key>
+	<false/>
+	<key>ShowShellCommandInTitle</key>
+	<false/>
+	<key>ShowTTYNameInTitle</key>
+	<false/>
+	<key>ShowWindowSettingsNameInTitle</key>
 	<false/>
 	<key>TextBoldColor</key>
 	<data>
@@ -211,7 +233,7 @@
 	<key>WindowTitle</key>
 	<string>Terminal</string>
 	<key>columnCount</key>
-	<integer>204</integer>
+	<integer>271</integer>
 	<key>keyMapBoundKeys</key>
 	<dict>
 		<key>#F739</key>
@@ -346,7 +368,7 @@
 	<key>name</key>
 	<string>Molokai</string>
 	<key>rowCount</key>
-	<integer>53</integer>
+	<integer>74</integer>
 	<key>type</key>
 	<string>Window Settings</string>
 </dict>

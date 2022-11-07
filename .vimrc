@@ -21,7 +21,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'bagrat/vim-buffet'
+
 Plugin 'flazz/vim-colorschemes'
+Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'liuchengxu/space-vim-theme'
+Plugin 'sainnhe/everforest'
+Plugin 'morhetz/gruvbox'
+
 Plugin 'mattesgroeger/vim-bookmarks'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -36,7 +42,6 @@ Plugin 'neoclide/coc-solargraph'
 
 Plugin 'blueyed/vim-diminactive'
 Plugin 'preservim/vimux'
-Plugin 'liuchengxu/vim-which-key'
 Plugin 'ruanyl/vim-gh-line'
 
 "Run `:CocInstall coc-solargraph`
@@ -80,7 +85,7 @@ inoremap jk <esc>
 set backspace=indent,eol,start
 
 "----------- Display white spaces -----------------
-set lcs+=space:·
+"set lcs+=space:·
 set list
 
 nnoremap <silent> <Leader>f :Rg <C-R><C-W><CR>
@@ -122,7 +127,9 @@ nnoremap <C-j> <C-o>
 nnoremap <C-k> <C-i>
 
 "--------- Colors --------
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
+colorscheme everforest
+
 
 "--------- NERDTree --------
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -290,7 +297,5 @@ nmap <Leader>ra :RuboCop -a<CR>
 nnoremap <silent>[ :cprevious<CR>
 nnoremap <silent>] :cnext<CR>
 
-"------- Which key ---------
-noremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 
