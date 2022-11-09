@@ -223,6 +223,10 @@ let g:bookmark_sign = '♥'
 nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
 nmap <silent> <leader>a :VimuxRunCommand 'dev test .'<CR>
 
+"------------ Open current directory --------
+nmap <silent> <leader>. :VimuxRunCommand 'cd '.expand('%:h')<CR> 
+
+
 "----------- Airline ----------
 let g:airline#extensions#tabline#enabled = 1
 let g:AirlineTheme='bubblegum'
