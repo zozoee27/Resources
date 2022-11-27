@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="zoey"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -107,8 +107,8 @@ alias ss="spin shell"
 alias sc="spin code"
 alias so="spin open"
 
-alias v='vim $(fzf --height=25)'
 alias l='ls -la'
+alias rg='rg --hidden'
 
 alias gp='git pull'
 alias gf='git fetch'
@@ -118,8 +118,15 @@ alias gc='git commit'
 alias gd='git diff'
 alias ga='git add'
 
+alias wip='git add .; git commit -m "WIP"'
+alias gwip='git reset --soft HEAD~1; git restore --staged .'
+
+alias vim='nvim'
+alias v='nvim $(fzf --height=25)'
+
 export DEV='/Users/zoeylan/src/github.com/Shopify/'
 export PATH="/opt/homebrew/opt/vim/bin:/opt/homebrew/opt/ruby@2.7/bin:/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH"
+source '/Users/zoeylan/.vim/bundle/gruvbox/gruvbox_256palette.sh'
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
