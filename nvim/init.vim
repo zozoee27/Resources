@@ -192,6 +192,11 @@ inoremap <silent><expr> <C-j>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
 inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
@@ -223,4 +228,8 @@ nnoremap <silent> <Leader>gd :Gdiff<CR>
 " ------------- Commenter
 map <leader>ccsdfklj <Plug>NERDCommenterComment
 map <leader>cc <Plug>NERDCommenterToggle
+
+" -------- copilot
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
 
