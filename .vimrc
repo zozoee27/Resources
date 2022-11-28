@@ -104,11 +104,9 @@ vnoremap ? ?\c
 
 "---------- Ctrl P -----------------
 nmap <c-p> :FZF<CR>
-let g:ctrlp_map = '<c-q>'
-let g:ctrlp_cmd = 'CtrlP'
 "let g:ctrlp_working_path_mode = 'ra'
 "let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.cache
 
 "------------- EASY MOTION ---------
 map <Leader>w <Plug>(easymotion-w)

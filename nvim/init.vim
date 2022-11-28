@@ -15,7 +15,7 @@ set expandtab
 
 set list
 "set lcs+=space:·
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.cache 
 
 "----------- Key Mappings
 let mapleader = " "
@@ -181,7 +181,7 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " ---------- COC
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-solargraph']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-solargraph', 'coc-yaml', 'coc-graphql']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -209,6 +209,9 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -223,7 +226,7 @@ nmap <silent> <leader>. :VimuxRunCommand 'cd '.expand('%:h')<CR>
 
 " ----------------- Github
 nnoremap <silent> <Leader>gb :Git blame<CR>
-nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>dif :Gdiff<CR>
 
 " ------------- Commenter
 map <leader>ccsdfklj <Plug>NERDCommenterComment

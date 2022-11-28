@@ -3,6 +3,7 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
+  "solargraph.transport": "stdio",
   "languageserver": {
     "sorbet": {
       "command": "srb",

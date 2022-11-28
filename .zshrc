@@ -123,6 +123,7 @@ alias gwip='git reset --soft HEAD~1; git restore --staged .'
 
 alias vim='nvim'
 alias v='nvim $(fzf --height=25)'
+export FZF_DEFAULT_COMMAND='rg --hidden -g "!.git/" -l ""'
 
 export DEV='/Users/zoeylan/src/github.com/Shopify/'
 export PATH="/opt/homebrew/opt/vim/bin:/opt/homebrew/opt/ruby@2.7/bin:/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH"
