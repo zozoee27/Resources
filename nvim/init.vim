@@ -64,8 +64,9 @@ Plug 'vim-ruby/vim-ruby'
 " ---- other util
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/vimux'
-
+Plug 'mattesgroeger/vim-bookmarks'
 Plug 'ruanyl/vim-gh-line'
+
 call plug#end()
 
 " ------- Themes ----------
@@ -132,6 +133,11 @@ map <Leader>/ <Plug>(easymotion-jumptoanywhere)
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFind<CR>
 nnoremap <leader>r. :NERDTreeRefreshRoot<CR>
+"
+"- NERDCommenter---------------------------------------------------------
+let NERDSpaceDelims=1
+map <leader>ccsdfklj <Plug>NERDCommenterComment
+map <leader>cc <Plug>NERDCommenterToggle
 
 " - FZF ----------------------------------------------------------------
 nmap <c-p> :FZF<CR>
@@ -181,13 +187,16 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " ---------- COC
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-solargraph', 'coc-yaml', 'coc-graphql']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-solargraph', 'coc-yaml', 'coc-graphql', 'coc-tsserver']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+"
+nmap <silent>rn <Plug>(coc-rename)
+
 inoremap <silent><expr> <C-j>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
@@ -228,11 +237,17 @@ nmap <silent> <leader>. :VimuxRunCommand 'cd '.expand('%:h')<CR>
 nnoremap <silent> <Leader>gb :Git blame<CR>
 nnoremap <silent> <Leader>dif :Gdiff<CR>
 
-" ------------- Commenter
-map <leader>ccsdfklj <Plug>NERDCommenterComment
-map <leader>cc <Plug>NERDCommenterToggle
-
 " -------- copilot
 let g:copilot_no_tab_map = v:true
 imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
+
+" ------------- Bookmarks ----------
+nmap <Leader>m <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>bm <Plug>BookmarkShowAll
+nmap <Leader>bd <Plug>BookmarkClear
+nmap <Leader>bx <Plug>BookmarkClearAll
+
+let g:bookmark_sign = '♥'
+
 
