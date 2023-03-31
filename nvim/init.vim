@@ -48,6 +48,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'github/copilot.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'alvan/vim-closetag'
 
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
@@ -60,6 +61,10 @@ Plug 'kien/rainbow_parentheses.vim'
 
 " -- Ruby
 Plug 'vim-ruby/vim-ruby'
+
+" -- Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " ---- other util
 Plug 'tpope/vim-fugitive'
@@ -155,6 +160,7 @@ let g:fzf_action = {
 
 nnoremap <silent> <Leader>f :Rg <C-R><C-W><CR>
 nnoremap <silent> <C-f> :Rg<CR>
+nnoremap <silent> <S-f> :BLines<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
   \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
@@ -250,4 +256,17 @@ nmap <Leader>bx <Plug>BookmarkClearAll
 
 let g:bookmark_sign = '♥'
 
-
+" ---------- CloseTag ------------
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
