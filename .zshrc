@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias BoostNoteServer="npm run dev:webpack"
 alias BoostNoteClient="npm run dev:electron"
 
+alias spin-restart-api="systemctl restart spin-instance-api.service"
 alias ss="spin shell"
 alias sc="spin code"
 alias so="spin open"
@@ -115,14 +116,19 @@ alias gf='git fetch'
 alias gs='git status'
 alias gl='git log'
 alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit --amend --no-edit'
 alias gd='git diff'
 alias ga='git add'
+alias gaa='git add .'
+alias gac='git add .; git commit -m'
 
 alias wip='git add .; git commit -m "WIP"'
 alias gwip='git reset --soft HEAD~1; git restore --staged .'
 
 alias vim='nvim'
 alias v='nvim $(fzf --height=25)'
+
 export FZF_DEFAULT_COMMAND='rg --hidden -g "!.git/" -l ""'
 
 export DEV='/Users/zoeylan/src/github.com/Shopify/'
@@ -131,7 +137,7 @@ source '/Users/zoeylan/.vim/bundle/gruvbox/gruvbox_256palette.sh'
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
