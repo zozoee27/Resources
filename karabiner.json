@@ -161,7 +161,18 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "consumer_key_code": "mute"
+                            },
+                            "to": [
+                                {
+                                    "consumer_key_code": "play_or_pause"
+                                }
+                            ]
+                        }
+                    ],
                     "treat_as_built_in_keyboard": true
                 },
                 {
@@ -175,7 +186,38 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "page_down"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f4"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "page_up"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f3"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f12"
+                            },
+                            "to": [
+                                {
+                                    "consumer_key_code": "fast_forward"
+                                }
+                            ]
+                        }
+                    ],
                     "treat_as_built_in_keyboard": true
                 },
                 {
@@ -201,36 +243,46 @@
                         "product_id": 16403,
                         "vendor_id": 12625
                     },
-                    "ignore": true,
+                    "ignore": false,
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "left_command"
+                                "consumer_key_code": "mute"
                             },
                             "to": [
                                 {
-                                    "key_code": "left_option"
+                                    "consumer_key_code": "play_or_pause"
                                 }
                             ]
                         },
                         {
                             "from": {
-                                "key_code": "left_option"
+                                "key_code": "page_down"
                             },
                             "to": [
                                 {
-                                    "key_code": "left_command"
+                                    "key_code": "f4"
                                 }
                             ]
                         },
                         {
                             "from": {
-                                "consumer_key_code": "broadcast_mode"
+                                "key_code": "page_up"
                             },
                             "to": [
                                 {
                                     "key_code": "f3"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f12"
+                            },
+                            "to": [
+                                {
+                                    "consumer_key_code": "fast_forward"
                                 }
                             ]
                         }

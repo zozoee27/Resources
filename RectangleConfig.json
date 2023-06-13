@@ -46,6 +46,12 @@
     "disabledApps" : {
 
     },
+    "dragFromStage" : {
+      "int" : 0
+    },
+    "enhancedUI" : {
+      "int" : 1
+    },
     "footprintAlpha" : {
       "float" : 0.30000001192092896
     },
@@ -65,10 +71,13 @@
       "float" : 0
     },
     "hideMenubarIcon" : {
-      "bool" : true
+      "bool" : false
     },
     "ignoredSnapAreas" : {
       "int" : 0
+    },
+    "landscapeSnapAreas" : {
+
     },
     "launchOnLogin" : {
       "bool" : true
@@ -79,17 +88,23 @@
     "minimumWindowWidth" : {
       "float" : 0
     },
+    "missionControlDragging" : {
+      "int" : 0
+    },
     "moveCursor" : {
       "int" : 0
     },
     "moveCursorAcrossDisplays" : {
-      "int" : 0
+      "int" : 1
     },
     "notifiedOfProblemApps" : {
       "bool" : false
     },
     "obtainWindowOnClick" : {
       "int" : 0
+    },
+    "portraitSnapAreas" : {
+
     },
     "relaunchOpensMenu" : {
       "bool" : false
@@ -106,6 +121,9 @@
     "screenEdgeGapRight" : {
       "float" : 0
     },
+    "screenEdgeGapsOnMainScreenOnly" : {
+      "bool" : false
+    },
     "screenEdgeGapTop" : {
       "float" : 0
     },
@@ -113,6 +131,9 @@
       "float" : 145
     },
     "showAllActionsInMenu" : {
+      "int" : 0
+    },
+    "sixthsSnapArea" : {
       "int" : 0
     },
     "sizeOffset" : {
@@ -138,6 +159,9 @@
     },
     "specifiedWidth" : {
       "float" : 1680
+    },
+    "stageSize" : {
+      "float" : 190
     },
     "subsequentExecutionMode" : {
       "int" : 1
@@ -168,6 +192,10 @@
     }
   },
   "shortcuts" : {
+    "bottomHalf" : {
+      "keyCode" : 118,
+      "modifierFlags" : 1572864
+    },
     "bottomLeft" : {
       "keyCode" : 38,
       "modifierFlags" : 786432
@@ -236,6 +264,10 @@
       "keyCode" : 27,
       "modifierFlags" : 1572864
     },
+    "topHalf" : {
+      "keyCode" : 99,
+      "modifierFlags" : 1572864
+    },
     "topLeft" : {
       "keyCode" : 32,
       "modifierFlags" : 786432
@@ -245,5 +277,5 @@
       "modifierFlags" : 786432
     }
   },
-  "version" : "59"
+  "version" : "69"
 }
