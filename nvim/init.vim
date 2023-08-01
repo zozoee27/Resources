@@ -12,6 +12,8 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set cursorline
+set cursorcolumn
 
 set list
 "set lcs+=space:·
@@ -237,7 +239,7 @@ nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
 nmap <silent> <leader>a :VimuxRunCommand 'dev test .'<CR>
 
 " Open current directory -------- -------t .
-nmap <silent> <leader>. :VimuxRunCommand 'cd '.expand('%:h')<CR> 
+nmap <silent> <leader>. :VimuxRunCommand 'popd; cd '.expand('%:h')<CR> 
 
 " ----------------- Github
 nnoremap <silent> <Leader>gb :Git blame<CR>
