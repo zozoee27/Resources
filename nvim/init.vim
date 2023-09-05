@@ -25,7 +25,7 @@ let mapleader = " "
 " Copy to system clipboard with yank
 vnoremap y "+y
 
-"--- Normal Shorcuts
+"--- Normal Shortcuts
 inoremap jk <esc>
 nnoremap / /\c
 vnoremap / /\c
@@ -199,7 +199,14 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " ---------- COC
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-solargraph', 'coc-yaml', 'coc-graphql', 'coc-tsserver']
+let g:coc_global_extensions = [
+\  'coc-json',
+\  'coc-git',
+\  'coc-solargraph',
+\  'coc-yaml',
+\  'coc-graphql',
+\  'coc-tsserver',
+\  'coc-spell-checker']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
@@ -240,7 +247,6 @@ nmap <silent> gr <Plug>(coc-references)
 
 " ------------ VIMUX ------
 nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
-nmap <silent> <leader>a :VimuxRunCommand 'dev test .'<CR>
 
 " Open current directory -------- -------t .
 nmap <silent> <leader>. :VimuxRunCommand 'popd; cd '.expand('%:h')<CR> 
@@ -285,7 +291,7 @@ let g:mkdp_auto_start = 0
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
 " default: 1
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
 
 " set to 1, the vim will refresh markdown when save the buffer or
 " leave from insert mode, default 0 is auto refresh markdown as you edit or
@@ -379,3 +385,7 @@ let g:mkdp_theme = 'light'
 
 " example
 nmap <Leader>md <Plug>MarkdownPreviewToggle
+
+"-- Spell checker ----
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)

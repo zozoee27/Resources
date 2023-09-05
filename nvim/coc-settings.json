@@ -18,5 +18,11 @@
       "args": ["server", "-m", "stream"],
       "filetypes": ["typescript", "typescriptreact", "graphql"]
     }
-  }
+  },
+  "cSpell.userWords": [
+    "jiangmiao",
+    "junegunn",
+    "neoclide",
+    "tpope"
+  ]
 }
