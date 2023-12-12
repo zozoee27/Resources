@@ -1,3 +1,6 @@
+if exists('+termguicolors')
+  set termguicolors
+endif
 " ----------- General settings 
 set nocompatible
 set nu
@@ -30,8 +33,8 @@ vnoremap y "+y
 inoremap jk <esc>
 
 " Navigate quickfix list with ease
-nnoremap <silent>[ :cprevious<CR>
-nnoremap <silent>] :cnext<CR>
+nnoremap [ :cprevious<CR>
+nnoremap ] :cnext<CR>
 
 "--- Buffer -------
 noremap <Tab> :bn<CR>
@@ -66,7 +69,6 @@ Plug 'vim-ruby/vim-ruby'
 
 " -- Javascript
 Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mxw/vim-jsx'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -82,18 +84,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 " ------- Themes ----------
-if has('termguicolors')
-  set termguicolors
-endif
-
 let g:everforest_background = 'medium'
-colorscheme everforest
+" let g:everforest_disable_terminal_colors = 1
+let g:diminactive_use_syntax = 1
 set background=light
-
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade  Comment
-hi link EasyMotionTarget2First Search
-hi link EasyMotionTarget2Second Highlight
+colorscheme everforest
 
 " Show trailing whitespace:
 match ExtraWhitespace /\s\+$/
@@ -217,8 +212,8 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <C-[> <Plug>(coc-diagnostic-prev)
+nmap <C-]> <Plug>(coc-diagnostic-next)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -380,7 +375,7 @@ let g:AutoPairsMultilineClose = 0
 
 vmap ( S)
 vmap { S}
-vmap [ S]
+vmap <leader>[ S]
 vmap ' S'
 vmap " S"
 vmap < S>
@@ -388,7 +383,7 @@ vmap ` S`
 
 nmap ) ds(
 nmap } ds{
-nmap ] ds[
+nmap <leader>] ds[
 nmap d' ds'
 nmap d" ds"
 nmap > ds<
@@ -396,7 +391,7 @@ nmap d` ds`
 
 nmap ( ysiw)
 nmap { ysiw}
-nmap [ ysiw]
+nmap <leader>[ ysiw]
 nmap ' ysiw'
 nmap " ysiw"
 nmap < ysiw>
