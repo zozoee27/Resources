@@ -378,29 +378,29 @@ let g:vim_jsx_pretty_colorful_config = 1
 " -------- Autopairs ----------
 let g:AutoPairsMultilineClose = 0
 
-vmap <leader>( S)
-vmap <leader>{ S}
-vmap <leader>[ S]
-vmap <leader>' S'
-vmap <leader>" S"
-vmap <leader>< S>
-vmap <leader>` S`
+vmap ( S)
+vmap { S}
+vmap [ S]
+vmap ' S'
+vmap " S"
+vmap < S>
+vmap ` S`
 
-nmap <leader>d( ds(
-nmap <leader>d{ ds{
-nmap <leader>d[ ds[
-nmap <leader>d' ds'
-nmap <leader>d" ds"
-nmap <leader>d< ds<
-nmap <leader>d` ds`
+nmap ) ds(
+nmap } ds{
+nmap ] ds[
+nmap d' ds'
+nmap d" ds"
+nmap > ds<
+nmap d` ds`
 
-nmap <leader>( ysiw)
-nmap <leader>{ ysiw}
-nmap <leader>[ ysiw]
-nmap <leader>' ysiw'
-nmap <leader>" ysiw"
-nmap <leader>< ysiw>
-nmap <leader>` ysiw
+nmap ( ysiw)
+nmap { ysiw}
+nmap [ ysiw]
+nmap ' ysiw'
+nmap " ysiw"
+nmap < ysiw>
+nmap ` ysiw
 
-nmap <leader>c" cs'"
-nmap <leader>c' cs"'
+nmap c" cs'"
+nmap c' cs"'
