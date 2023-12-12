@@ -3,6 +3,7 @@ set nocompatible
 set nu
 set wrap!
 set ignorecase
+set smartcase
 set backspace=indent,eol,start
 
 set incsearch
@@ -27,10 +28,6 @@ vnoremap y "+y
 
 "--- Normal Shortcuts
 inoremap jk <esc>
-nnoremap / /\c
-vnoremap / /\c
-nnoremap ? ?\c
-vnoremap ? ?\c
 
 " Navigate quickfix list with ease
 nnoremap <silent>[ :cprevious<CR>
@@ -62,14 +59,18 @@ Plug 'qpkorr/vim-bufkill'
 " -- Themes
 Plug 'sainnhe/everforest'
 Plug 'blueyed/vim-diminactive'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 " -- Ruby
 Plug 'vim-ruby/vim-ruby'
 
 " -- Javascript
 Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mxw/vim-jsx'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'jparise/vim-graphql'
 
 " ---- other util
 Plug 'tpope/vim-fugitive'
@@ -81,7 +82,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 " ------- Themes ----------
-let g:everforest_background = 'hard'
+if has('termguicolors')
+  set termguicolors
+endif
+
+let g:everforest_background = 'medium'
 colorscheme everforest
 set background=light
 
@@ -103,29 +108,29 @@ match ExtraWhitespace /[^\t]\zs\t\+/
 match ExtraWhitespace /^\t*\zs \+/
 
 " ------------------ Rainbow parenthesis
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+" let g:rbpt_colorpairs = [
+    " \ ['brown',       'RoyalBlue3'],
+    " \ ['Darkblue',    'SeaGreen3'],
+    " \ ['darkgray',    'DarkOrchid3'],
+    " \ ['darkgreen',   'firebrick3'],
+    " \ ['darkcyan',    'RoyalBlue3'],
+    " \ ['darkred',     'SeaGreen3'],
+    " \ ['darkmagenta', 'DarkOrchid3'],
+    " \ ['brown',       'firebrick3'],
+    " \ ['gray',        'RoyalBlue3'],
+    " \ ['black',       'SeaGreen3'],
+    " \ ['darkmagenta', 'DarkOrchid3'],
+    " \ ['Darkblue',    'firebrick3'],
+    " \ ['darkgreen',   'RoyalBlue3'],
+    " \ ['darkcyan',    'SeaGreen3'],
+    " \ ['darkred',     'DarkOrchid3'],
+    " \ ['red',         'firebrick3'],
+    " \ ]
 
 "--------- Buffers -----------
 nnoremap <C-b> :Buffers <CR>
@@ -389,3 +394,10 @@ nmap <Leader>md <Plug>MarkdownPreviewToggle
 "-- Spell checker ----
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
+
+"------- Javascript Syntax ------
+let g:vim_jsx_pretty_highlight_close_tag = 1
+let g:vim_jsx_pretty_colorful_config = 1
+
+" -------- Autopairs ----------
+let g:AutoPairsMultilineClose = 0
