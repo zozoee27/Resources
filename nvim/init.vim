@@ -107,31 +107,6 @@ match ExtraWhitespace /[^\t]\zs\t\+/
 " Show spaces used for indenting (so you use only tabs for indenting).
 match ExtraWhitespace /^\t*\zs \+/
 
-" ------------------ Rainbow parenthesis
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
-
-" let g:rbpt_colorpairs = [
-    " \ ['brown',       'RoyalBlue3'],
-    " \ ['Darkblue',    'SeaGreen3'],
-    " \ ['darkgray',    'DarkOrchid3'],
-    " \ ['darkgreen',   'firebrick3'],
-    " \ ['darkcyan',    'RoyalBlue3'],
-    " \ ['darkred',     'SeaGreen3'],
-    " \ ['darkmagenta', 'DarkOrchid3'],
-    " \ ['brown',       'firebrick3'],
-    " \ ['gray',        'RoyalBlue3'],
-    " \ ['black',       'SeaGreen3'],
-    " \ ['darkmagenta', 'DarkOrchid3'],
-    " \ ['Darkblue',    'firebrick3'],
-    " \ ['darkgreen',   'RoyalBlue3'],
-    " \ ['darkcyan',    'SeaGreen3'],
-    " \ ['darkred',     'DarkOrchid3'],
-    " \ ['red',         'firebrick3'],
-    " \ ]
-
 "--------- Buffers -----------
 nnoremap <C-b> :Buffers <CR>
 nnoremap <Leader>db :BD <CR>
@@ -378,6 +353,7 @@ let g:mkdp_port = ''
 
 " preview page title
 " ${name} will be replace with the file name
+
 let g:mkdp_page_title = '「${name}」'
 
 " recognized filetypes
@@ -401,3 +377,30 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 " -------- Autopairs ----------
 let g:AutoPairsMultilineClose = 0
+
+vmap <leader>( S)
+vmap <leader>{ S}
+vmap <leader>[ S]
+vmap <leader>' S'
+vmap <leader>" S"
+vmap <leader>< S>
+vmap <leader>` S`
+
+nmap <leader>d( ds(
+nmap <leader>d{ ds{
+nmap <leader>d[ ds[
+nmap <leader>d' ds'
+nmap <leader>d" ds"
+nmap <leader>d< ds<
+nmap <leader>d` ds`
+
+nmap <leader>( ysiw)
+nmap <leader>{ ysiw}
+nmap <leader>[ ysiw]
+nmap <leader>' ysiw'
+nmap <leader>" ysiw"
+nmap <leader>< ysiw>
+nmap <leader>` ysiw
+
+nmap <leader>c" cs'"
+nmap <leader>c' cs"'
