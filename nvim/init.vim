@@ -13,11 +13,17 @@ set incsearch
 set hlsearch
 
 set autoindent
+set smartindent
+filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set cursorline
 set cursorcolumn
+
+" set nofoldenable
+" set foldmethod=syntax
+" set foldcolumn=1
 
 set list
 "set lcs+=space:·
@@ -40,10 +46,15 @@ nnoremap ] :cnext<CR>
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
+"----- Folding -----
+nnoremap <leader><space> za
+nnoremap <leader>o zR
+
 " -------------- VIM Plug ------
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pseewald/vim-anyfold'
 
 " ------ Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -178,6 +189,7 @@ let g:coc_global_extensions = [
 \  'coc-json',
 \  'coc-git',
 \  'coc-solargraph',
+\  'coc-eslint',
 \  'coc-yaml',
 \  'coc-graphql',
 \  'coc-tsserver',
@@ -373,29 +385,38 @@ let g:vim_jsx_pretty_colorful_config = 1
 " -------- Autopairs ----------
 let g:AutoPairsMultilineClose = 0
 
-vmap ( S)
-vmap { S}
+vmap <leader>( S)
+vmap <leader>{ S}
 vmap <leader>[ S]
-vmap ' S'
-vmap " S"
-vmap < S>
-vmap ` S`
+vmap <leader>' S'
+vmap <leader>" S"
+vmap <leader>< S>
+vmap <leader>` S`
 
-nmap ) ds(
-nmap } ds{
+nmap <leader>) ds(
+nmap <leader>} ds{
 nmap <leader>] ds[
-nmap d' ds'
-nmap d" ds"
-nmap > ds<
-nmap d` ds`
+nmap <leader>d' ds'
+nmap <leader>d" ds"
+nmap <leader>> ds<
+nmap <leader>d` ds`
 
-nmap ( ysiw)
-nmap { ysiw}
+nmap <leader>( ysiw)
+nmap <leader>{ ysiw}
 nmap <leader>[ ysiw]
-nmap ' ysiw'
-nmap " ysiw"
-nmap < ysiw>
-nmap ` ysiw
+nmap <leader>' ysiw'
+nmap <leader>" ysiw"
+nmap <leader>< ysiw>
+nmap <leader>` ysiw
 
-nmap c" cs'"
-nmap c' cs"'
+nmap <leader>c" cs'"
+nmap <leader>c' cs"'
+
+
+"-------- Anyfold ----------
+" filetype plugin indent on
+" syntax on
+autocmd Filetype * AnyFoldActivate
+hi Folded term=underline
+let g:anyfold_fold_comments = 1
+set foldlevel=99
