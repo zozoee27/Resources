@@ -21,10 +21,6 @@ set expandtab
 set cursorline
 set cursorcolumn
 
-" set nofoldenable
-" set foldmethod=syntax
-" set foldcolumn=1
-
 set list
 "set lcs+=space:·
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.cache 
@@ -37,6 +33,15 @@ vnoremap y "+y
 
 "--- Normal Shortcuts
 inoremap jk <esc>
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <esc>:w<CR>
+
+nnoremap <2-LeftMouse> i
+
+nnoremap qq :q<CR>
+nnoremap Q :qa!<CR>
+nnoremap ss :w<CR>
+nnoremap S :wa!<CR>
 
 " Navigate quickfix list with ease
 nnoremap [ :cprevious<CR>
@@ -49,6 +54,15 @@ noremap <S-Tab> :bp<CR>
 "----- Folding -----
 nnoremap <leader><space> za
 nnoremap <leader>o zR
+
+map ∆ <A-j>
+map ˚ <A-k>
+map ƒ <A-f>
+
+nnoremap <A-k> :m -2<CR>
+nnoremap <A-j> :m +1<CR>
+vnoremap <A-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
+vnoremap <A-j> :m'>+<CR>gv=`<my`>mzgv`yo`z
 
 " -------------- VIM Plug ------
 call plug#begin()
@@ -65,6 +79,9 @@ Plug 'tpope/vim-endwise'
 Plug 'github/copilot.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'alvan/vim-closetag'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
@@ -97,8 +114,9 @@ call plug#end()
 " ------- Themes ----------
 let g:everforest_background = 'medium'
 " let g:everforest_disable_terminal_colors = 1
-let g:diminactive_use_syntax = 1
+let g:diminactive_use_syntax = 0
 set background=light
+
 colorscheme everforest
 
 " Show trailing whitespace:
@@ -122,22 +140,23 @@ nnoremap <C-k> <C-i>
 "------------- EASY MOTION ---------
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>b <Plug>(easymotion-b)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <Leader><down> <Plug>(easymotion-j)
+map <Leader><up> <Plug>(easymotion-k)
 map <Leader>/ <Plug>(easymotion-jumptoanywhere)
 
 "- NERDTree ------------------------------------------------------------
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <C-n> :NERDTreeRefreshRoot \| :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeRefreshRoot \|:NERDTreeFind<CR>
 nnoremap <leader>r. :NERDTreeRefreshRoot<CR>
-"
+
 "- NERDCommenter---------------------------------------------------------
 let NERDSpaceDelims=1
 map <leader>ccsdfklj <Plug>NERDCommenterComment
 map <leader>cc <Plug>NERDCommenterToggle
 
 " - FZF ----------------------------------------------------------------
-nmap <c-p> :FZF<CR>
+"nmap <c-p> :FZF<CR>
+
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val  }'))
   copen
@@ -151,8 +170,11 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'}
 
 nnoremap <silent> <Leader>f :Rg <C-R><C-W><CR>
-nnoremap <silent> <C-f> :Rg<CR>
+nnoremap <silent> <A-f> :Rg<CR>
+nnoremap <silent> <C-p> :Telescope find_files<CR>
+nnoremap <silent> <C-f> :Telescope live_grep<CR>
 nnoremap <silent> <S-f> :BLines<CR>
+
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
   \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
@@ -232,15 +254,23 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <leader>cl <Plug>(coc-codelens-action)
+nnoremap <silent><nowait> <leader>s :<C-u>CocList -I symbols<cr>
+
 " ------------ VIMUX ------
-nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
+autocmd FileType ruby nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
+autocmd FileType javascript nmap <silent> <leader>t :VimuxRunCommand 'yarn test --watch '.@%<CR>
+autocmd FileType typescript nmap <silent> <leader>t :VimuxRunCommand 'yarn test --watch '.@%<CR>
 
 " Open current directory -------- -------t .
-nmap <silent> <leader>. :VimuxRunCommand 'popd; cd '.expand('%:h')<CR> 
+nmap <silent> <leader>. :VimuxRunCommand 'popd; pushd '.expand('%:h')<CR>
 
 " ----------------- Github
 nnoremap <silent> <Leader>gb :Git blame<CR>
-nnoremap <silent> <Leader>dif :Gdiff<CR>
+nnoremap <silent> <Leader>diff :Gvdiffsplit<CR>
+nnoremap <silent> <Leader>gs :Git<CR>
+nnoremap <silent> <Leader>gc :Git commit<CR>
 
 " -------- copilot
 let g:copilot_no_tab_map = v:true
@@ -372,11 +402,11 @@ let g:mkdp_filetypes = ['markdown']
 let g:mkdp_theme = 'light'
 
 " example
-nmap <Leader>md <Plug>MarkdownPreviewToggle
+nmap <leader>md <Plug>MarkdownPreviewToggle
 
 "-- Spell checker ----
-vmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
+vmap <leader>j <Plug>(coc-codeaction-selected)<down>
+nmap <leader>j <Plug>(coc-codeaction-selected)<down>
 
 "------- Javascript Syntax ------
 let g:vim_jsx_pretty_highlight_close_tag = 1
@@ -411,6 +441,7 @@ nmap <leader>` ysiw
 
 nmap <leader>c" cs'"
 nmap <leader>c' cs"'
+nmap <leader>c` cs'`
 
 
 "-------- Anyfold ----------
@@ -420,3 +451,4 @@ autocmd Filetype * AnyFoldActivate
 hi Folded term=underline
 let g:anyfold_fold_comments = 1
 set foldlevel=99
+
