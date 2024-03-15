@@ -39,8 +39,37 @@
         "typescriptreact",
         "graphql"
       ]
+    },
+    "rubocop": {
+      "command": "bundle",
+      "args": [
+        "exec",
+        "rubocop",
+        "--lsp"
+      ],
+      "filetypes": [
+        "ruby"
+      ],
+      "rootPatterns": [
+        ".git",
+        "Gemfile"
+      ],
+      "requireRootPattern": true
     }
   },
-  "cSpell.userWords": [],
+  "cSpell.userWords": [
+    "cstrong",
+    "exampleshop",
+    "jiangmiao",
+    "junegunn",
+    "metafield",
+    "myshopify",
+    "neoclide",
+    "shopifyapiauthsesion",
+    "shopifyapiauthsession",
+    "shopifyapicontext",
+    "shopifyapicontextsetup",
+    "tpope"
+  ],
   "coc.preferences.formatOnSave": true,
 }

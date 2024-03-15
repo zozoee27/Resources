@@ -52,8 +52,8 @@ noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
 "----- Folding -----
-nnoremap <leader><space> za
-nnoremap <leader>o zR
+nnoremap <space><space> za
+nnoremap <leader>O zR
 
 map ∆ <A-j>
 map ˚ <A-k>
@@ -69,6 +69,7 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pseewald/vim-anyfold'
+Plug 'djoshea/vim-autoread'
 
 " ------ Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -91,6 +92,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'sainnhe/everforest'
 Plug 'blueyed/vim-diminactive'
 Plug 'junegunn/rainbow_parentheses.vim'
+"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " -- Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -116,7 +118,6 @@ let g:everforest_background = 'medium'
 " let g:everforest_disable_terminal_colors = 1
 let g:diminactive_use_syntax = 0
 set background=light
-
 colorscheme everforest
 
 " Show trailing whitespace:
@@ -259,7 +260,8 @@ nnoremap <silent><nowait> <leader>cl <Plug>(coc-codelens-action)
 nnoremap <silent><nowait> <leader>s :<C-u>CocList -I symbols<cr>
 
 " ------------ VIMUX ------
-autocmd FileType ruby nmap <silent> <leader>t :VimuxRunCommand 'dev test '.@%<CR>
+autocmd FileType ruby nmap <silent> <leader>T :VimuxRunCommand 'dev test '.@%<CR>
+autocmd FileType ruby nmap <silent> <leader>t :VimuxRunCommand('dev test '.@%.':'.line('.'))<CR>
 autocmd FileType javascript nmap <silent> <leader>t :VimuxRunCommand 'yarn test --watch '.@%<CR>
 autocmd FileType typescript nmap <silent> <leader>t :VimuxRunCommand 'yarn test --watch '.@%<CR>
 
