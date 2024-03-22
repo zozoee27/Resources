@@ -1,0 +1,7 @@
+source $BYOBU_PREFIX/share/byobu/keybindings/common
+
+bind-key -n C-Up resize-pane -U
+bind-key -n C-Down resize-pane -D
+bind-key -n C-Left resize-pane -L
+bind-key -n C-Right resize-pane -R
+
