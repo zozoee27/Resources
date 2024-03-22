@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="zoey"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -128,34 +128,32 @@ alias gac='git add .; git commit -m'
 alias wip='git add .; git commit -m "WIP"'
 alias gwip='git reset --soft HEAD~1; git restore --staged .'
 
-alias vim='nvm use 17; nvim'
+#alias vim='nvm use 17; nvim'
+alias vim='nvim'
 alias v='nvim $(fzf --height=25)'
 
 export FZF_DEFAULT_COMMAND='rg --hidden -g "!.git/" -l ""'
 
 export DEV='/Users/zoeylan/src/github.com/Shopify/'
-export PATH="/opt/homebrew/opt/vim/bin:/opt/homebrew/opt/ruby@2.7/bin:/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH"
-source '/Users/zoeylan/.vim/bundle/gruvbox/gruvbox_256palette.sh'
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
-
 # ------ fzf auto complete on zsh
 #source /usr/share/doc/fzf/examples/completion.zsh
 #source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-    autoload -Uz compinit
-    compinit
-fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# if type brew &>/dev/null; then
+    # FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    # autoload -Uz compinit
+    # compinit
+# fi
 
 # ----- Fix sticky keys in VSCode
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
@@ -165,5 +163,6 @@ defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool fa
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
-
 eval "$(atuin init zsh --disable-up-arrow)"
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }

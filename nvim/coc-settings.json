@@ -10,20 +10,33 @@
   "eslint.autoFixOnSave": true,
   "workspace.workspaceFolderCheckCwd": false,
   "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+  "cSpell": {
+    "language": "en",
+    "enabled": true,
+    "allowCoumpoundWords": true,
+    "enabledLanguageIds": [
+      "csharp",
+      "go",
+      "javascript",
+      "javascriptreact",
+      "markdown",
+      "php",
+      "plaintext",
+      "typescript",
+      "typescriptreact",
+      "yml",
+      "ruby"
+    ],
+    "showStatus": true
+  },
   "languageserver": {
-    "sorbet": {
-      "command": "srb",
-      "args": [
-        "tc",
-        "--lsp",
-        "--enable-all-experimental-lsp-features"
-      ],
+    "ruby-lsp": {
+      "command": "ruby-lsp",
+      "args": [],
       "filetypes": [
         "ruby"
       ],
-      "rootPatterns": [
-        "sorbet/config"
-      ],
+      "rootPatterns": [],
       "initializationOptions": {},
       "settings": {}
     },

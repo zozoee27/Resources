@@ -52,8 +52,8 @@ noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
 "----- Folding -----
-nnoremap <space><space> za
-nnoremap <leader>O zR
+nnoremap <leader>c za
+nnoremap <leader>o zR
 
 map ∆ <A-j>
 map ˚ <A-k>
@@ -255,7 +255,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <leader>O  :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <leader>cl <Plug>(coc-codelens-action)
 nnoremap <silent><nowait> <leader>s :<C-u>CocList -I symbols<cr>
 
