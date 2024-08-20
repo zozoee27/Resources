@@ -40,6 +40,21 @@
       "initializationOptions": {},
       "settings": {}
     },
+    "sorbet": {
+      "command": "bundle",
+      "args": [
+        "exec",
+        "srb",
+        "typecheck",
+        "--lsp"
+      ],
+      "filetypes": [
+        "ruby"
+      ],
+      "rootPatterns": [],
+      "initializationOptions": {},
+      "settings": {}
+    },
     "graphql": {
       "command": "graphql-lsp",
       "args": [
@@ -71,13 +86,20 @@
     }
   },
   "cSpell.userWords": [
+    "Configurer",
+    "SHIPIT",
+    "Zoey",
     "cstrong",
+    "dont",
     "exampleshop",
+    "fullpage",
     "jiangmiao",
     "junegunn",
     "metafield",
     "myshopify",
     "neoclide",
+    "nilable",
+    "perma",
     "shopifyapiauthsesion",
     "shopifyapiauthsession",
     "shopifyapicontext",

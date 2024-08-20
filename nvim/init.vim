@@ -156,7 +156,7 @@ map <leader>ccsdfklj <Plug>NERDCommenterComment
 map <leader>cc <Plug>NERDCommenterToggle
 
 " - FZF ----------------------------------------------------------------
-"nmap <c-p> :FZF<CR>
+nnoremap <c-o> :FZF<CR>
 
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val  }'))
@@ -172,8 +172,8 @@ let g:fzf_action = {
 
 nnoremap <silent> <Leader>f :Rg <C-R><C-W><CR>
 nnoremap <silent> <A-f> :Rg<CR>
-nnoremap <silent> <C-p> :Telescope find_files<CR>
-nnoremap <silent> <C-f> :Telescope live_grep<CR>
+nnoremap <silent> <C-p> :Telescope find_files path_display={"truncate"}<CR>
+nnoremap <silent> <C-f> :Telescope live_grep path_display={"truncate"}<CR>
 nnoremap <silent> <S-f> :BLines<CR>
 
 command! -bang -nargs=* Rg
