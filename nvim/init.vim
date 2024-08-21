@@ -58,6 +58,7 @@ nnoremap <leader>o zR
 map ∆ <A-j>
 map ˚ <A-k>
 map ƒ <A-f>
+map ø <A-o>
 
 nnoremap <A-k> :m -2<CR>
 nnoremap <A-j> :m +1<CR>
@@ -110,6 +111,8 @@ Plug 'preservim/vimux'
 Plug 'mattesgroeger/vim-bookmarks'
 Plug 'ruanyl/vim-gh-line'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+Plug 'wellle/context.vim'
 
 call plug#end()
 
@@ -255,7 +258,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <silent><nowait> <leader>O  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <leader>O  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <A-o> :<C-u>CocList outline<cr>
 nnoremap <silent><nowait> <leader>cl <Plug>(coc-codelens-action)
 nnoremap <silent><nowait> <leader>s :<C-u>CocList -I symbols<cr>
 
@@ -453,4 +457,7 @@ autocmd Filetype * AnyFoldActivate
 hi Folded term=underline
 let g:anyfold_fold_comments = 1
 set foldlevel=99
+
+"--------- Context -------------
+let g:context_enabled = 1
 
