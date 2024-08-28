@@ -47,5 +47,9 @@ require("catppuccin").setup({
     },
 })
 
--- setup must be called before loading
-vim.cmd.colorscheme "catppuccin-mocha"
+require('gitsigns').setup ({
+  current_line_blame = true,
+  current_line_blame_opts = {
+    delay = 500,
+  }
+})
