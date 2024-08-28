@@ -93,7 +93,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'sainnhe/everforest'
 Plug 'blueyed/vim-diminactive'
 Plug 'junegunn/rainbow_parentheses.vim'
-"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " -- Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -116,12 +116,18 @@ Plug 'wellle/context.vim'
 
 call plug#end()
 
+" Theme
+lua require('catppuccin-setup')
+
 " ------- Themes ----------
 let g:everforest_background = 'medium'
 " let g:everforest_disable_terminal_colors = 1
 let g:diminactive_use_syntax = 0
+let g:diminactive_use_colorcolumn = 0
+let g:diminactive_use_colorline = 0
 set background=light
-colorscheme everforest
+"colorscheme everforest
+" colorscheme catppuccin
 
 " Show trailing whitespace:
 match ExtraWhitespace /\s\+$/
@@ -461,3 +467,4 @@ set foldlevel=99
 "--------- Context -------------
 let g:context_enabled = 1
 
+colorscheme catppuccin-frappe
