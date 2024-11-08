@@ -1,20 +1,134 @@
 {
-    "vim.easymotion": true,
-    "vim.sneak": true,
-    "vim.useSystemClipboard": true,
-    "vim.incsearch": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings":[
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        }
-    ], 
-    "vim.leader": "<space>",
-    "editor.renderWhitespace": "all",
-    "editor.minimap.enabled": false,
-    "workbench.colorTheme": "Monokai Dimmed",
-    "editor.cursorStyle": "block",
-    "cmake.configureOnOpen": true
+  "workbench.colorTheme": "Quiet Light",
+  "remote.SSH.connectTimeout": 150,
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [120],
+    "editor.semanticHighlighting.enabled": true
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.editorAssociations": {
+    "*.sqlite": "default"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1,
+    "vscodevim.vim": 1
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.surround": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["leader", "c", "c"],
+      "commands": ["editor.action.commentLine"],
+    },
+    {
+      "before": ["leader", "c", "c"],
+      "commands": ["editor.action.commentLine"],
+    },
+    {
+      "before": ["leader", "\""],
+      "after": ["S", "\""],
+    },
+    {
+      "before": ["leader", "'"],
+      "after": ["S", "'"],
+    },
+    {
+      "before": ["leader", "["],
+      "after": ["S", "["],
+    },
+    {
+      "before": ["leader", "("],
+      "after": ["S", "("],
+    },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-n>"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["leader", "n"],
+      "commands": ["workbench.view.explorer"],
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    {
+      "before": ["<space>", "g", "t"],
+      "after": ["F12"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.navigateForward"]
+    },
+    {
+      "before": ["leader", "g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["leader", "g", "r"],
+      "commands": ["references-view.findReferences"],
+    },
+    {
+      "before": ["<C-o>"],
+      "commands": ["workbench.action.quickOpen"],
+    },
+    {
+      "before": ["<C-b>"],
+      "commands": ["workbench.action.quickOpen"],
+    },
+    {
+      "before": ["tab"],
+      "commands": ["editor.action.inlineSuggest.commit"],
+    },
+    {
+      "before": ["leader", "c", "c"],
+      "commands": ["editor.action.commentLine"],
+    },
+    {
+      "before": ["<C-p>"],
+      "commands": ["workbench.action.showCommands"],
+    },
+    {
+      "before": ["leader", "c", "'"],
+      "after": ["<plugcs>", "\"", "'"],
+    },
+    {
+      "before": ["leader", "c", "\""],
+      "after": ["<plugcs>", "'", "\""],
+    },
+
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "editor.minimap.enabled": false,
+  "workbench.editor.showTabs": "none"
 }
