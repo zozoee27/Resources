@@ -104,6 +104,7 @@ alias BoostNoteServer="npm run dev:webpack"
 alias BoostNoteClient="npm run dev:electron"
 
 alias spin-restart-api="systemctl restart spin-instance-api.service"
+alias dev-restart='dev reup && dev restart --procs'
 alias ss="spin shell"
 alias sc="spin code"
 alias so="spin open"
@@ -160,9 +161,21 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false        
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
 defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false         # For VS Codium
 defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+defaults write com.todesktop.230313mzl4w4u92 ApplePressAndHoldEnabled -bool false     # For Cursor
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 eval "$(atuin init zsh --disable-up-arrow)"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/zoeylan/.kube/config:/Users/zoeylan/.kube/config.shopify.cloudplatform
+
+# pnpm
+export PNPM_HOME="/Users/zoeylan/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -186,6 +186,7 @@ nnoremap <silent> <A-f> :Rg<CR>
 nnoremap <silent> <C-p> :Telescope find_files path_display={"truncate"}<CR>
 nnoremap <silent> <C-f> :Telescope live_grep path_display={"truncate"}<CR>
 nnoremap <silent> <S-f> :BLines<CR>
+nnoremap ? :BLines<CR>
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
